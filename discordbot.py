@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # 从环境变量中获取 Discord 机器人的令牌
-TOKEN = os.getenv('DISCORD_TOKEN')
+TOKEN = os.getenv('DISCORD_BOT_TOKEN')
 
 # 要监控的频道 ID
 CHANNEL_ID = 1240069759563731085
