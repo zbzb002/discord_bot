@@ -1,16 +1,13 @@
-name: Run Discord Bot
+name: Discord Bot
 
-on:
-  push:
-    branches:
-      - main
+on: [push]
 
 jobs:
-  run-bot:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
+    - name: Checkout repository content
       uses: actions/checkout@v2
 
     - name: Set up Python
@@ -25,5 +22,6 @@ jobs:
 
     - name: Run bot
       env:
-        DISCORD_BOT_TOKEN: ${{ secrets.DISCORD_BOT_TOKEN }}
-      run: python discord_bot.py
+        DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
+      run: |
+        python discordbot.py
