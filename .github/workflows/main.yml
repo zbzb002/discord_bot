@@ -22,6 +22,6 @@ jobs:
 
     - name: Run bot
       env:
-        DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
+        DISCORD_BOT_TOKEN: ${{ secrets.DISCORD_TOKEN }}
       run: |
         python discordbot.py
