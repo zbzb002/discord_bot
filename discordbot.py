@@ -1,12 +1,11 @@
 import discord
 import os
-from dotenv import load_dotenv
-
-# 加载 .env 文件中的环境变量
-load_dotenv()
 
 # 从环境变量中获取 Discord 机器人的令牌
 TOKEN = os.getenv('DISCORD_BOT_TOKEN')
+
+if TOKEN is None:
+    raise ValueError("No DISCORD_BOT_TOKEN found in environment variables")
 
 # 要监控的频道 ID
 CHANNEL_ID = 1240069759563731085
@@ -18,7 +17,7 @@ KEYWORD = '4ga'
 USER_ID = 699738069594800209
 
 intents = discord.Intents.default()
-intents.message_content = True
+intents.messages = True
 
 class MyClient(discord.Client):
     async def on_ready(self):
